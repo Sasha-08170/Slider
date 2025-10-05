@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ua">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Відгуки співробітників</title>
+</head>
+<body>
+<section class="reviews-section">
+  <div class="reviews-container">
+    <!-- === Левая колонка с текстом === -->
+    <div class="reviews-info">
+      <h2 class="reviews-title">
+        Найкраща підтримка не на словах, а на ділі
+      </h2>
+
+      <p><strong>На вашому сайті помилка</strong> — оператор служби підтримки вже знає, як її усунути...</p>
+      <p><strong>Ви не можете розібратися з інструкцією</strong> — оператор покроково проведе вас...</p>
+      <p><strong>Ви не розумієте, який хостинг підійде для ваших цілей</strong> — оператор запитає...</p>
+      <p><strong>Ви засмучені через те, що сайт працює повільно</strong> — оператор перевірить...</p>
+      <p><strong>Ви з якоїсь причини залишилися незадоволеними нашою підтримкою</strong> — ваше питання...</p>
+    </div>
+
+    <!-- === Правая колонка — слайдер отзывов === -->
+    <div class="reviews-card">
+      <div class="reviews-card-header">
+        <div class="reviews-card-icon">👤</div>
+        <div class="reviews-card-title">Відгуки про співробітників</div>
+      </div>
+
+      <!-- Блок пагинации со стрелками -->
+      <div class="reviews-card-pagination">
+        <button class="arrow-btn js-prev">&#8249;</button>
+        <span class="js-counter">1 з 3</span>
+        <button class="arrow-btn js-next">&#8250;</button>
+      </div>
+
+      <!-- Слайдер -->
+      <div class="reviews-slider">
+        <div class="review active">
+        <p>Сподобався стиль спілкування консультанта: чемний, ввічливий, тактовний.
+          Оператор одразу включився в роботу після зміни іншого — це справжня командна робота!</p>
+        </div>
+        <div class="review">
+         <p>Підтримка допомогла знайти причину повільної роботи сайту й навіть надіслала відео з котиком :) Приємно, коли компанія дійсно дбає про клієнтів.</p>
+        </div>
+        <div class="review">
+          <p>Оператор уважно вислухав моє питання, провів інструкцію покроково та пояснив простими словами. Дуже дякую за людяність і терпіння!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+// Собираем отзывы и элементы управления
+const reviews = document.querySelectorAll('.review');
+const prevBtn = document.querySelector('.js-prev');
+const nextBtn = document.querySelector('.js-next');
+const counter = document.querySelector('.js-counter');
+
+let currentIndex = 0;
+
+// Функция показа активного отзыва
+function showReview(index) {
+  reviews.forEach((r, i) => {
+    r.classList.toggle('active', i === index);
+  });
+  counter.textContent = `${index + 1} з ${reviews.length}`;
+}
+
+// Обработчики стрелок
+nextBtn.addEventListener('click', () => {
+  currentIndex = (currentIndex + 1) % reviews.length;
+  showReview(currentIndex);
+});
+
+prevBtn.addEventListener('click', () => {
+  currentIndex = (currentIndex - 1 + reviews.length) % reviews.length;
+  showReview(currentIndex);
+});
+
+showReview(currentIndex);
+</script>
+
+</body>
+</html>
