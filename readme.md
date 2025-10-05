@@ -47,7 +47,7 @@ reviews-section/
 
 ## Логика слайдера
 
-Слайдер реализован через простое изменение класса `.active`:
+Слайдер реализован через изменение класса `.active`:
 
 ```js
 function showReview(index) {
@@ -57,3 +57,4 @@ function showReview(index) {
   counter.textContent = `${index + 1} из ${reviews.length}`;
 }
 ```
+
