@@ -20,7 +20,7 @@
 
 * **HTML5** — структурная разметка секции.
 * **CSS3 (Flexbox)** — вёрстка, стилизация и хвостик блока через `clip-path`.
-* **Vanilla JS** — простой логический слайдер без библиотек.
+* **Vanilla JS** — слайдер без библиотек.
 
 ---
 
@@ -57,5 +57,6 @@ function showReview(index) {
   counter.textContent = `${index + 1} из ${reviews.length}`;
 }
 ```
+
 
 
